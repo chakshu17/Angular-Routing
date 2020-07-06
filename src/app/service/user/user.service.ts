@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser } from 'src/app/interface/user/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private _rooturl: string = 'https://jsonplaceholder.typicode.com/users';
+  private _rootposturl:string = 'https://jsonplaceholder.typicode.com/posts';
 
   private _users: IUser[]=[
     {id:1 ,name:'Demon',email:'Demon@ag.com'},
@@ -31,7 +32,9 @@ export class UserService {
   }
 
   getUserByIdREST(id:number):Observable<IUser>{
+    let headers = new HttpHeaders().set('Authorization','Bearer your-acces-token-here');
     return this.http.get<IUser>(`${this._rooturl}/${id}`);
+   // return this.http.get<IUser>(this._rooturl,{headers:headers });
   }
 
   createUser(user:IUser): Observable<IUser>{
@@ -46,7 +49,8 @@ export class UserService {
   deleteUser(id:number): Observable<IUser>{
     return this.http.delete<IUser>(`${this._rooturl}/${id}`);
   }
-  getUserPosts(){
-
+  getUserPosts(id:number ):Observable<any>{
+    let params = new HttpParams().set('userid',id.toString())
+    return this.http.get(this._rootposturl,{ params })
   }
 }

@@ -12,6 +12,7 @@ import { VirtualTimeScheduler } from 'rxjs';
 export class UserdetailsComponent implements OnInit {
   user: any;
   users: IUser[];
+  posts:any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,7 +38,11 @@ export class UserdetailsComponent implements OnInit {
     );
   }
   deleteUser(){
-
+    this.userService.deleteUser(this.user.id).subscribe(
+      user => alert(`The user was Deleted` ),
+      err=>alert(`got error as ${err}`),
+      () => alert(`Deletion completed`),
+    );
   }
   updateUser(){
     this.user.name = "Demon king";
@@ -49,6 +54,6 @@ export class UserdetailsComponent implements OnInit {
     );
   }
   getUserPosts(){
-
+    this.posts= this.userService.getUserPosts(this.user.id)
   }
 }
