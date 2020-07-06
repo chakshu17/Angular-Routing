@@ -2,5 +2,9 @@
 User id : {{ user.id }} <br>
 User name :{{ user.name }}  <br>
 User email :{{ user.email }}  <br>
-User number: {{ user.numb }}
+User name: {{ user.username }}<br>
+User Address:<br>
+<pre>
+    {{user.address | json }}
+</pre>
 
