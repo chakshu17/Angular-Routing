@@ -33,4 +33,20 @@ export class UserService {
   getUserByIdREST(id:number):Observable<IUser>{
     return this.http.get<IUser>(`${this._rooturl}/${id}`);
   }
+
+  createUser(user:IUser): Observable<IUser>{
+    return this.http.post<IUser>(this._rooturl,user);
+  }
+
+
+  updateUser(user:IUser): Observable<IUser>{
+    return this.http.put<IUser>(`${this._rooturl}/${user.id}`,user);
+  }
+
+  deleteUser(id:number): Observable<IUser>{
+    return this.http.delete<IUser>(`${this._rooturl}/${id}`);
+  }
+  getUserPosts(){
+
+  }
 }

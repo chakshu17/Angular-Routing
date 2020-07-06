@@ -3,8 +3,8 @@ User id : {{ user.id }} <br>
 User name :{{ user.name }}  <br>
 User email :{{ user.email }}  <br>
 User name: {{ user.username }}<br>
-User Address:<br>
-<pre>
-    {{user.address | json }}
-</pre>
-
+<hr>
+<button class="bt btn-success" (click)="createUser()">Create User</button>
+<button class="bt btn-primary" (click)="deleteUser()">Delete User</button>
+<button class="bt btn-danger" (click)="updateUser()">Update User</button>
+<button class="bt btn-warning" (click)="getUserPosts()">Get Post by User</button>

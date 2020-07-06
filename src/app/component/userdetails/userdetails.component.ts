@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IUser } from 'src/app/interface/user/user';
 import { UserService } from 'src/app/service/user/user.service';
+import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-userdetails',
@@ -25,5 +26,29 @@ export class UserdetailsComponent implements OnInit {
        user =>this.user = user
      );
    });
+  }
+
+  createUser(){
+    this.user.id = null;
+    this.userService.createUser(this.user).subscribe(
+      user => alert(`A new user was crated with id: ${user.id}` ),
+      err=>alert(`got error as ${err}`),
+      () => alert(`Creation completed`),
+    );
+  }
+  deleteUser(){
+
+  }
+  updateUser(){
+    this.user.name = "Demon king";
+    this.user.email = "demon@agg.com";
+    this.userService.updateUser(this.user).subscribe(
+      user => alert(`The user was Updated` ),
+      err=>alert(`got error as ${err}`),
+      () => alert(`Updation completed`),
+    );
+  }
+  getUserPosts(){
+
   }
 }
