@@ -1,0 +1,14 @@
+<h4>
+  NgCLass and NgStyle
+</h4>
+
+<button class="btn btn-primary" (click)="gradientToggle =! gradientToggle ">Toggle Gradient</button>
+<div [ngClass]="gradientToggle ? 'blue-gradient' : 'red-gradient'"
+  [ngStyle] = "{ color:'white','font-family':'courier' }">
+  THIS IS DIV
+</div>
+
+<hr>
+<h4>Ng NOnbindable</h4>
+
+<p ngNonBindable >the user's name can be printed on string using string interpolation syntax like : {{ userName }}</p>

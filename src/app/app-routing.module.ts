@@ -12,6 +12,7 @@ import { UserdetailsComponent } from './component/userdetails/userdetails.compon
 import { PlaceholderComponent } from './component/placeholder/placeholder.component';
 import { ParentComponent } from './component/parent/parent.component';
 import { BuiltInStrDirComponent } from './component/built-in-str-dir/built-in-str-dir.component';
+import { BuiltInAttrDirComponent } from './component/built-in-attr-dir/built-in-attr-dir.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,8 @@ const routes: Routes = [
   ]},
   {path:'parent', component:ParentComponent},
   {path:'str-dir', component:BuiltInStrDirComponent},
+  {path:'attr-dir', component:BuiltInAttrDirComponent},
+
   { path:'message', component:MessgeComponent,canDeactivate:[ ConfirmationGuard]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ];
