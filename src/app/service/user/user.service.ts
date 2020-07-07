@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IUser } from 'src/app/interface/user/user';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 // import  'rxjs/add/operator/map';
 // import  'rxjs/add/operator/retry';
 // import  'rxjs/add/operator/catch';
@@ -13,7 +13,8 @@ export class UserService {
 
   private _rooturl: string = 'https://jsonplaceholder.typicode.com/users';
   private _rootposturl:string = 'https://jsonplaceholder.typicode.com/posts';
-
+  private _prop: string ='foo' ;
+  public propChange:BehaviorSubject<string> = new BehaviorSubject<string>(this._prop);
   private _users: IUser[]=[
     {id:1 ,name:'Demon',email:'Demon@ag.com'},
     {id:2 ,name:'John',email:'john@ag.com'},
@@ -23,6 +24,15 @@ export class UserService {
     {id:6 ,name:'Adi',email:'adi@ag.com'},
   ]
   constructor(private http:HttpClient) { }
+
+  getProp():string{
+    return this._prop;
+  }
+
+  setProp(prop:string):void{
+    this._prop = prop;
+    this.propChange.next(this._prop);
+  }
 
   getusers(): IUser[]{
     return this._users;

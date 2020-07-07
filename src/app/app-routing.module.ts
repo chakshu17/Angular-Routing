@@ -10,6 +10,7 @@ import { MessgeComponent } from './component/messge/messge.component';
 import { ConfirmationGuard } from './guards/confirmation/confirmation.guard';
 import { UserdetailsComponent } from './component/userdetails/userdetails.component';
 import { PlaceholderComponent } from './component/placeholder/placeholder.component';
+import { ParentComponent } from './component/parent/parent.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
     {path:':id',component:UserdetailsComponent},
     {path:'',component:PlaceholderComponent}
   ]},
+  {path:'parent', component:ParentComponent},
   { path:'message', component:MessgeComponent,canDeactivate:[ ConfirmationGuard]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ];
