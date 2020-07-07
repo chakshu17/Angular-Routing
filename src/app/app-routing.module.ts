@@ -11,6 +11,7 @@ import { ConfirmationGuard } from './guards/confirmation/confirmation.guard';
 import { UserdetailsComponent } from './component/userdetails/userdetails.component';
 import { PlaceholderComponent } from './component/placeholder/placeholder.component';
 import { ParentComponent } from './component/parent/parent.component';
+import { BuiltInStrDirComponent } from './component/built-in-str-dir/built-in-str-dir.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path:'',component:PlaceholderComponent}
   ]},
   {path:'parent', component:ParentComponent},
+  {path:'str-dir', component:BuiltInStrDirComponent},
   { path:'message', component:MessgeComponent,canDeactivate:[ ConfirmationGuard]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ];

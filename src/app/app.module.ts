@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
+import {CommonModule} from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
@@ -18,6 +18,7 @@ import { PlaceholderComponent } from './component/placeholder/placeholder.compon
 import { OneComponent } from './component/one/one.component';
 import { ParentComponent } from './component/parent/parent.component';
 import { TwoComponent } from './component/two/two.component';
+import { BuiltInStrDirComponent } from './component/built-in-str-dir/built-in-str-dir.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +35,14 @@ import { TwoComponent } from './component/two/two.component';
     OneComponent,
     ParentComponent,
     TwoComponent,
+    BuiltInStrDirComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

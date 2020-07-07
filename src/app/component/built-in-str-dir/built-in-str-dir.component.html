@@ -1,0 +1,29 @@
+<button class="btn btn-primary" (click)="showlist = !showlist"> Toggle list Visibilty </button>
+<br>
+<div *ngIf="showlist">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let i of messages,let j = index">
+      index : {{ j }} , Message: {{i}}
+    </li>
+  </ul>
+</div>
+<!-- <br>
+<div >
+  <ul class="list-group">
+    <li class="list-group-item"
+     *ngIf="showlist"
+      *ngFor="let i of messages;let j = index">
+      index : {{ j }} , Message: {{i}}
+    </li>
+  </ul>
+</div>    not allowed to have  Multiple structural dir -->
+<h4>Ng Switch</h4>
+<input type="text" class="form-control" [(ngModel)]="alertType" >
+<br>
+<div [ngSwitch] = "alertType">
+  <div *ngSwitchCase = "'success'" class="alert alert-success" role="alert">Well done you have successfully read this Important alert message</div>
+  <div *ngSwitchCase = "'info'" class="alert alert-info" role="alert">A simple secondary alert—check it out!</div>
+  <div *ngSwitchCase = "'warning'" class="alert alert-warning" role="alert">A simple warning alert—check it out!</div>
+  <div *ngSwitchCase = "'danger'" class="alert alert-danger" role="alert">A simple danger alert—check it out!</div>
+  <div *ngSwitchDefault  class="alert " role="alert">This is Default case</div>
+</div>
