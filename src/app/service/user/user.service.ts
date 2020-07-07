@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { IUser } from 'src/app/interface/user/user';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+// import  'rxjs/add/operator/map';
+// import  'rxjs/add/operator/retry';
+// import  'rxjs/add/operator/catch';
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +28,32 @@ export class UserService {
     return this._users;
   }
   getUsersViaREST(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(this._rooturl);
+    let headers = new HttpHeaders().set('Authorization','Bearer your-acces-token-here');
+     return this.http.get<IUser[]>(this._rooturl);
+    // return this.http
+    //   .get<IUser[]>(this._rooturl, { headers })
+    //   .map((users) => {
+    //     return users.map((user) => {
+    //       return {
+    //         id: user.id,
+    //         name: user.name,
+    //         email: user.email
+    //       }
+    //     })
+    //   });
   }
   getUserById(id:number):IUser{
     return this._users.filter(user => user.id === id)[0];
   }
 
   getUserByIdREST(id:number):Observable<IUser>{
-    let headers = new HttpHeaders().set('Authorization','Bearer your-acces-token-here');
-    return this.http.get<IUser>(`${this._rooturl}/${id}`);
-   // return this.http.get<IUser>(this._rooturl,{headers:headers });
+   return this.http.get<IUser>(`${this._rooturl}/${id}`);
+  //  return this.http.get<IUser>(`${this._rooturl}/${id}sdfgds`)
+  //   .retry(3)
+  //   .catch( err=>{
+  //     console.log('got error as :',err);
+  //     return err;
+  //   });
   }
 
   createUser(user:IUser): Observable<IUser>{
