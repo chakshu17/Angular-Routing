@@ -20,6 +20,8 @@ import { ParentComponent } from './component/parent/parent.component';
 import { TwoComponent } from './component/two/two.component';
 import { BuiltInStrDirComponent } from './component/built-in-str-dir/built-in-str-dir.component';
 import { BuiltInAttrDirComponent } from './component/built-in-attr-dir/built-in-attr-dir.component';
+import { ChangeCaseDirective } from './directives/changeCase/change-case.directive';
+import { DirectiveHostComponent } from './component/directive-host/directive-host.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { BuiltInAttrDirComponent } from './component/built-in-attr-dir/built-in-
     TwoComponent,
     BuiltInStrDirComponent,
     BuiltInAttrDirComponent,
+    ChangeCaseDirective,
+    DirectiveHostComponent,
   ],
   imports: [
     BrowserModule,

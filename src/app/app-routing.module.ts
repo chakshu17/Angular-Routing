@@ -13,12 +13,13 @@ import { PlaceholderComponent } from './component/placeholder/placeholder.compon
 import { ParentComponent } from './component/parent/parent.component';
 import { BuiltInStrDirComponent } from './component/built-in-str-dir/built-in-str-dir.component';
 import { BuiltInAttrDirComponent } from './component/built-in-attr-dir/built-in-attr-dir.component';
+import { DirectiveHostComponent } from './component/directive-host/directive-host.component';
 
 
 const routes: Routes = [
   { path:'home', component:HomeComponent },
-  { path:'blog', component:BlogComponent,canActivate:[ AuthGuard ] },
-  { path:'about', component:AboutComponent },
+  // { path:'blog', component:BlogComponent,canActivate:[ AuthGuard ] },
+  // { path:'about', component:AboutComponent },
   { path:'users' , component:UsersComponent,children:[
     {path:':id',component:UserdetailsComponent},
     {path:'',component:PlaceholderComponent}
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'parent', component:ParentComponent},
   {path:'str-dir', component:BuiltInStrDirComponent},
   {path:'attr-dir', component:BuiltInAttrDirComponent},
+  {path:'directives', component:DirectiveHostComponent},
 
   { path:'message', component:MessgeComponent,canDeactivate:[ ConfirmationGuard]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
