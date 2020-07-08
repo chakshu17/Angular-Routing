@@ -1,3 +1,17 @@
+<!-- Behaviour subject  -->
 <app-one></app-one>
 <app-two></app-two>
-<!-- Behaviour subject  -->
+<hr>
+<h4>
+  Pipes:
+</h4>
+
+<ul class="list-group">
+
+  <li class="list-group-item">Date Without Pipe: {{ dateToday }}</li>
+  <li class="list-group-item">Date With Pipe: {{ dateToday | date | lowercase}}</li>
+  <li class="list-group-item">Date With Pipe and Params: {{ dateToday | date:'full'| uppercase }}</li>
+  <li class="list-group-item">Date With Pipe and Params: {{ dateToday | uppercase | date:'full' }} thier is a certain order for usnig pipes. </li>
+
+
+</ul>
