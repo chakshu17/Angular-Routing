@@ -29,6 +29,10 @@ export class UserService {
     return this._prop;
   }
 
+  addUser(user:IUser){
+    this._users.push(user);
+  }
+
   setProp(prop:string):void{
     this._prop = prop;
     this.propChange.next(this._prop);

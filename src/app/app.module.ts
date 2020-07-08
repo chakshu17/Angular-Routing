@@ -24,6 +24,7 @@ import { ChangeCaseDirective } from './directives/changeCase/change-case.directi
 import { DirectiveHostComponent } from './component/directive-host/directive-host.component';
 import { UnlessDirective } from './directives/unless/unless.directive';
 import { ApendorPipe } from './pipes/apendor/apendor.pipe';
+import { FilterPipe } from './pipes/filter/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ApendorPipe } from './pipes/apendor/apendor.pipe';
     DirectiveHostComponent,
     UnlessDirective,
     ApendorPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

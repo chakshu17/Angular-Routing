@@ -1,4 +1,4 @@
-<!-- Behaviour subject  -->
+<!-- Behaviour subject
 <app-one></app-one>
 <app-two></app-two>
 <hr>
@@ -11,7 +11,20 @@
   <li class="list-group-item">Date Without Pipe: {{ dateToday }}</li>
   <li class="list-group-item">Date With Pipe: {{ dateToday | date | lowercase}}</li>
   <li class="list-group-item">Date With Pipe and Params: {{ dateToday | date:'full'| uppercase }}</li>
-  <li class="list-group-item">Date With Pipe and Params: {{ dateToday | uppercase | date:'full' }} thier is a certain order for usnig pipes. </li>
+   <li class="list-group-item">Date With Pipe and Params: {{ dateToday | uppercase | date:'full' }}
+      thier is a certain order for usnig pipes. </li>
+</ul>
+<hr> -->
+<h4>
+  Pure and Impure Pipes
+</h4>
 
+<input type="text" [(ngModel)] ='filterIdType' >
+<br>
+<button class="btn btn-primary" (click) = "addUser() "> Add User</button>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor=" let user of users | filter : filterIdType">
+    <div class="alert alert-success" role="alert">User ID: {{user.id}} , User Name: {{user.name}} </div>
+  </li>
 
 </ul>
