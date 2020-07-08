@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './component/home/home.component';
-import { BlogComponent } from './component/blog/blog.component';
-import { AboutComponent } from './component/about/about.component';
+ import { HomeComponent } from './component/home/home.component';
+// import { BlogComponent } from './component/blog/blog.component';
+// import { AboutComponent } from './component/about/about.component';
 import { UsersComponent } from './component/users/users.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { MessgeComponent } from './component/messge/messge.component';
