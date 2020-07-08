@@ -1,3 +1,19 @@
 <!-- <input type="text" value= " DEMON " appChangeCase [case]="'lower'">
-<input type="text" value= " demon " appChangeCase [case]="'upper'"> -->
-<input type="text" value= " demon " [appChangeCase] ="'upper'"> Property Binding
+<input type="text" value= " demon " appChangeCase [case]="'upper'">  -->
+<input type="text" value= " demon " [appChangeCase] ="'upper'">
+<!-- Property Binding -->
+<!--
+
+<div *ngIf = " showUnless ">
+  This will Show
+</div>
+
+ <ng-template [ngIf] = " showUnless ">
+  <div >
+    This will Show
+  </div>
+</ng-template> the ablove code is  exactly the same angular converts that code in this format. -->
+
+<div *appUnless = " false ">
+  This will Show
+</div>
