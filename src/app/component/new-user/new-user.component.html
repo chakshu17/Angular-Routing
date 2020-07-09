@@ -1,0 +1,72 @@
+<div class="class-container">
+  <h3>New User Form</h3>
+  <!-- form>(div.form-conatiner>label[for='name']+input[naem='name'].form-control)*5   for lower text -->
+  <!-- <form (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="text" name="website" class="form-control" ngModel>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form> -->
+  <form #userform="ngForm" (ngSubmit)="submit(userform)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input required minlength="8" maxlength="24" pattern="Chakshu Doe" type="text" name="name" class="form-control" ngModel #name="ngModel">
+      <div *ngIf="name.touched && name.invalid" class="alert-danger">
+        <p *ngIf="name.errors.required"> Name is required. </p>
+        <p *ngIf="name.errors.minlength"> Name length must be atleast 8 characters. </p>
+        <p *ngIf="name.errors.maxlength"> Name length must be atmost 24 characters. </p>
+        <p *ngIf="name.errors.pattern"> Name is Pattern must be Chakshu Doe. </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" class="form-control" ngModel>
+    </div>
+
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="text" name="website" class="form-control" ngModel>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="userform.invalid">Submit</button>
+
+    <hr>
+    <pre>
+
+</pre>
+  </form>
+
+</div>

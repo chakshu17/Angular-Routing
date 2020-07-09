@@ -25,6 +25,7 @@ import { DirectiveHostComponent } from './component/directive-host/directive-hos
 import { UnlessDirective } from './directives/unless/unless.directive';
 import { ApendorPipe } from './pipes/apendor/apendor.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
+import { NewUserComponent } from './component/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
     UnlessDirective,
     ApendorPipe,
     FilterPipe,
+    NewUserComponent,
   ],
   imports: [
     BrowserModule,

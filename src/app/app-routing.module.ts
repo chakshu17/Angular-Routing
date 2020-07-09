@@ -14,6 +14,7 @@ import { ParentComponent } from './component/parent/parent.component';
 import { BuiltInStrDirComponent } from './component/built-in-str-dir/built-in-str-dir.component';
 import { BuiltInAttrDirComponent } from './component/built-in-attr-dir/built-in-attr-dir.component';
 import { DirectiveHostComponent } from './component/directive-host/directive-host.component';
+import { NewUserComponent } from './component/new-user/new-user.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
     {path:'',component:PlaceholderComponent}
   ]},
   {path:'parent', component:ParentComponent},
+  {path:'new-user', component:NewUserComponent},
   {path:'str-dir', component:BuiltInStrDirComponent},
   {path:'attr-dir', component:BuiltInAttrDirComponent},
   {path:'directives', component:DirectiveHostComponent},
