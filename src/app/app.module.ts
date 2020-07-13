@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';

@@ -51,6 +51,9 @@ export class NewUserReactiveComponent implements OnInit {
   addhobby(){
     (<FormArray>this.userForm.get('hobbies')).push(new FormControl(''));
   }
+  deletHobby(index){
+    (<FormArray>this.userForm.get('hobbies')).removeAt(index);
+  }
   submit(){
 
   }

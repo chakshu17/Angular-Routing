@@ -107,10 +107,10 @@
     </fieldset> -->
 
     <fieldset>
-      <legend>Hobbies | <span class="glyphicon glypchicon-plus" (click)="addhobby()">+</span>  </legend>
-      <div class="input-group" *ngFor= "let hobbyControl of userForm.get('hobbies'); let i = index">
-        <input type="text" class="form-control" [formControlName]="i" placeholder="Hobby" >
-        <span class="ipnut-group-addon glyphicon glyphicon-trash" ></span>
+      <legend>Hobbies | <span class="glyphicon glyphicon-plus" (click)="addhobby()">+</span> </legend>
+      <div class="input-group" *ngFor="let hobbyControl of userForm.get('hobbies'); let i = index">
+        <input type="text" class="form-control" [formControlName]="i" placeholder="Hobby">
+        <span class="ipnut-group-addon glyphicon glyphicon-trash" (click)="deletHobby(i)"></span>
       </div>
     </fieldset>
 
