@@ -61,23 +61,68 @@
       <label for="website">Website</label>
       <input type="text" name="website" class="form-control" ngModel>
     </div>
+
+    <div ngModelGroup ="address">
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" name="street" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="suite">Suite</label>
+        <input type="text" name="suite" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" name="city" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zipcode</label>
+        <input type="text" name="zipcode" class="form-control" ngModel>
+      </div>
+      <div ngModelGroup ="geo">
+        <div class="form-group">
+          <label for="lat">Lat</label>
+          <input type="text" name="lat" class="form-control" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="lng">Lng</label>
+          <input type="text" name="lng" class="form-control" ngModel>
+        </div>
+      </div>
+    </div>
+
+    <div ngModelGroup ="company">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="catchPhase">Catch Phoase</label>
+        <input type="text" name="catchPhase" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="bs">BS</label>
+        <input type="text" name="bs" class="form-control" ngModel>
+      </div>
+    </div>
+
     <div class="radio">
       <label for="gender" *ngFor="let gender of genders">
-       <input  name="gender" [value]="gender" ngModel type="radio" >{{ gender }} &nbsp;&nbsp;
+        <input name="gender" [value]="gender" ngModel type="radio">{{ gender }} &nbsp;&nbsp;
       </label>
     </div>
 
     <div class="form-group">
-      <label for="communicationModes"> Communication Options  </label>
-        <select name="communicationModes" class="form-control">
-          <option value=""></option>
-          <option *ngFor="let compt of communicationModes"  [value]="compt"> {{compt}}</option>
-        </select>
+      <label for="communicationModes"> Communication Options </label>
+      <select name="communicationModes" class="form-control">
+        <option value=""></option>
+        <option *ngFor="let compt of communicationModes" [value]="compt"> {{compt}}</option>
+      </select>
     </div>
 
     <div class="checkbox">
-      <label for="agreement" >
-       <input  name="agreement" ngModel type="checkbox" >&nbsp; I agree to Terms and Conditions.
+      <label for="agreement">
+        <input name="agreement" ngModel type="checkbox">&nbsp; I agree to Terms and Conditions.
       </label>
     </div>
 

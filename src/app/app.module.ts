@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about/about.component';
@@ -26,6 +28,8 @@ import { UnlessDirective } from './directives/unless/unless.directive';
 import { ApendorPipe } from './pipes/apendor/apendor.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { NewUserComponent } from './component/new-user/new-user.component';
+import { NewUserReactiveComponent } from './component/new-user-reactive/new-user-reactive.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,13 +54,17 @@ import { NewUserComponent } from './component/new-user/new-user.component';
     ApendorPipe,
     FilterPipe,
     NewUserComponent,
+    NewUserReactiveComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
