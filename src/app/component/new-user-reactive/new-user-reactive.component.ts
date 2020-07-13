@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormArray,FormControl,Validators } from '@angular/forms';
+import { CustomValidations } from 'src/app/classes/custom.validations';
 
 @Component({
   selector: 'app-new-user-reactive',
@@ -12,6 +13,12 @@ export class NewUserReactiveComponent implements OnInit {
   get name(){
     return this.userForm.get('name');
   }
+  get username(){
+    return this.userForm.get('username');
+  }
+  resetForm(){
+    this.userForm.reset();
+  }
 
   constructor() { }
 
@@ -22,7 +29,8 @@ export class NewUserReactiveComponent implements OnInit {
         Validators.minLength(8),
         Validators.pattern('Chakshu Kishnani')
       ]),
-      username: new FormControl('chakshu'),
+      username: new FormControl('chakshu',CustomValidations.asyncUnique),
+    // username: new FormControl('chakshu',CustomValidations.unique, ),
       email: new FormControl('chakshu@gmail.com'),
       phone: new FormControl('1236547890'),
       website: new FormControl('ck.com'),

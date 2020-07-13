@@ -6,8 +6,7 @@
       <input type="text" formControlName="name" class="form-control">
       <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
         <p *ngIf="name.errors.required "> The Name is Required </p>
-        <p *ngIf="name.errors.minlength "> The Name must be atleast {{name.errors.minlength.requiredLength}} char long
-        </p>
+        <p *ngIf="name.errors.minlength "> The Name must be atleast {{name.errors.minlength.requiredLength}} char long </p>
         <p *ngIf="name.errors.pattern "> The Name must be Chakshu Kishnani </p>
       </div>
       <!-- <div class="alert alert-danger" *ngIf= "userForm.get('name').touched && userForm.get('name').invalid">
@@ -20,6 +19,11 @@
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" formControlName="username" class="form-control">
+      <p *ngIf="username.pending" >Checking for Uniqueness from server values...</p>
+      <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+        <!-- <p *ngIf="username.errors.unique "> The Username must be unique. </p> -->
+        <p *ngIf="username.errors.asyncUnique "> The Username must be unique. </p>
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
@@ -115,6 +119,7 @@
     </fieldset>
 
     <button class="btn btn-prmary" type="submit">Submit</button>
+    <button class="btn btn-warning" type="button" (click)="resetForm()"> Reset</button>
 
   </form>
 </div>
