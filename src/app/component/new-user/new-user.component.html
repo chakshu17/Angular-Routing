@@ -32,7 +32,7 @@
   <form #userform="ngForm" (ngSubmit)="submit(userform)" style="padding: 10px;">
     <div class="form-group">
       <label for="name">Name</label>
-      <input required minlength="8" maxlength="24" pattern="Chakshu Doe" type="text" name="name" class="form-control"
+      <input required minlength="8" maxlength="24" type="text" name="name" class="form-control"
         ngModel #name="ngModel">
       <div *ngIf="name.touched && name.invalid" class="alert-danger">
         <p *ngIf="name.errors.required"> Name is required. </p>
@@ -127,11 +127,18 @@
     </div>
 
     <button class="btn btn-primary" type="submit" [disabled]="userform.invalid">Submit</button>
+    <button class="btn btn-primary" type="button" (click)="updateUser(userform)">Update User</button>
+    <button class="btn btn-primary" type="button" (click)="deleteUser()">Delete  User</button>
 
     <hr>
     <pre>
         {{ userform.value | json }}
     </pre>
   </form>
-
+  <div class="col-md-7">
+      <pre>
+        {{userlist | json}}
+      </pre>
+      <button class="btn btn-primary" type="button" (click)= "getUsers()"> Get Users</button> <br>
+  </div>
 </div>

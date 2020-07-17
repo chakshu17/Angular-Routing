@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { IUser } from 'src/app/interface/user/user';
 import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { AngularFireDatabaseModule, AngularFireDatabase, AngularFireList } from "@angular/fire/database";
 // import  'rxjs/add/operator/map';
 // import  'rxjs/add/operator/retry';
 // import  'rxjs/add/operator/catch';
@@ -14,6 +15,8 @@ export class UserService {
   private _rooturl: string = 'https://jsonplaceholder.typicode.com/users';
   private _rootposturl:string = 'https://jsonplaceholder.typicode.com/posts';
   private _prop: string ='foo' ;
+  private userlist:AngularFireList<any>;
+
   public propChange:BehaviorSubject<string> = new BehaviorSubject<string>(this._prop);
   private _users: IUser[]=[
     {id:1 ,name:'Demon',email:'Demon@ag.com'},
@@ -23,7 +26,12 @@ export class UserService {
     {id:5 ,name:'Son Goku',email:'goku@ag.com'},
     {id:6 ,name:'Adi',email:'adi@ag.com'},
   ]
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient,
+    private firebase:AngularFireDatabase
+    ) {
+      this.userlist= this.firebase.list('users');
+    }
 
   getProp():string{
     return this._prop;
@@ -85,5 +93,20 @@ export class UserService {
   getUserPosts(id:number ):Observable<any>{
     let params = new HttpParams().set('userid',id.toString())
     return this.http.get(this._rootposturl,{ params })
+  }
+
+  getUsersFromFirebase(){
+    return this.userlist;
+  }
+  addUsersToFirebase(user: IUser){
+    this.userlist.push(user);
+  }
+  updateUserFirebase(user: IUser){
+    let $key = user.$key;//add $key in interface thge use this in service.
+    delete user.$key;
+    this.userlist.update($key,user);
+  }
+  deleteUserFromFirebase($key:string){
+    this.userlist.remove($key);
   }
 }

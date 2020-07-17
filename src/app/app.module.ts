@@ -4,8 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
-
+import {MatIconModule} from '@angular/material/icon'
+import { AngularFireModule } from'@angular/fire';
+import { AngularFireDatabaseModule } from'@angular/fire/database';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -31,6 +32,7 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
 import { NewUserComponent } from './component/new-user/new-user.component';
 import { NewUserReactiveComponent } from './component/new-user-reactive/new-user-reactive.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     ReactiveFormsModule,
     MatIconModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
