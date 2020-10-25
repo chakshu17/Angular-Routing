@@ -1,21 +1,28 @@
-<div >
-<p>User Deatils: </p>
-User id : {{ user.id }} <br>
-User name :{{ user.name }}  <br>
-User email : <a href="{{ user.email | apendor: 'pre' : 'mailto://'}}"> {{ user.email }}</a> <br>
-User Phone : <a href="tel://{{ user.phone | apendor : 'pre' : 'telto://' }}"> {{ user.phone }}</a> <br>
+<div>
+  <p>User Deatils:</p>
+  User id : {{ user.id }} <br />
+  User name :{{ user.name }} <br />
+  User email :
+  <a href="{{ user.email | apendor: 'pre':'mailto://' }}"> {{ user.email }}</a>
+  <br />
+  User Phone :
+  <a href="tel://{{ user.phone | apendor: 'pre':'telto://' }}">
+    {{ user.phone }}</a
+  >
+  <br />
 
-<!-- User email : <a href="mailto://{{ user.email}}"> {{ user.email }}</a>
+  <!-- User email : <a href="mailto://{{ user.email}}"> {{ user.email }}</a>
   User email : <a href="{{ user.email | apendor }}"> {{ user.email }}</a> comment 1.0<br>
   User phone : <a href="tel://{{ user.phone }}"> {{ user.phone }}</a> <br>
 User name: {{ user.username }}<br> -->
-
 </div>
-<hr>
+<hr />
 <button class="bt btn-success" (click)="createUser()">Create User</button>
 <button class="bt btn-primary" (click)="deleteUser()">Delete User</button>
 <button class="bt btn-danger" (click)="updateUser()">Update User</button>
-<button class="bt btn-warning" (click)="getUserPosts()">Get Post by User</button>
+<button class="bt btn-warning" (click)="getUserPosts()">
+  Get Post by User
+</button>
 
 <h4>User's Posts</h4>
-<pre>{{ posts | async | json | titlecase}}</pre>
+<pre>{{ posts | async | json | titlecase }}</pre>
