@@ -1,91 +1,96 @@
 <div class="container">
-  <h3>New Reactive Form </h3>
+  <h3>New Reactive Form</h3>
   <form [formGroup]="userForm" (ngSubmit)="submit()">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" formControlName="name" class="form-control">
+      <input type="text" formControlName="name" class="form-control" />
       <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-        <p *ngIf="name.errors.required "> The Name is Required </p>
-        <p *ngIf="name.errors.minlength "> The Name must be atleast {{name.errors.minlength.requiredLength}} char long </p>
-        <p *ngIf="name.errors.pattern "> The Name must be Chakshu Kishnani </p>
+        <p *ngIf="name.errors.required">The Name is Required</p>
+        <p *ngIf="name.errors.minlength">
+          The Name must be atleast
+          {{ name.errors.minlength.requiredLength }} char long
+        </p>
+        <p *ngIf="name.errors.pattern">The Name must be Chakshu Kishnani</p>
       </div>
       <!-- <div class="alert alert-danger" *ngIf= "userForm.get('name').touched && userForm.get('name').invalid">
         <p *ngIf="userForm.get('name').errors.required "> The Name is Required </p>
         <p *ngIf="userForm.get('name').errors.minlength "> The Name must be atleast 8 char long </p>
         <p *ngIf="userForm.get('name').errors.pattern "> The Name must be Chakshu Kishnani </p>
       </div> -->
-
     </div>
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" formControlName="username" class="form-control">
-      <p *ngIf="username.pending" >Checking for Uniqueness from server values...</p>
-      <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+      <input type="text" formControlName="username" class="form-control" />
+      <p *ngIf="username.pending">
+        Checking for Uniqueness from server values...
+      </p>
+      <div
+        class="alert alert-danger"
+        *ngIf="username.touched && username.invalid"
+      >
         <!-- <p *ngIf="username.errors.unique "> The Username must be unique. </p> -->
-        <p *ngIf="username.errors.asyncUnique "> The Username must be unique. </p>
+        <p *ngIf="username.errors.asyncUnique">The Username must be unique.</p>
       </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" formControlName="email" class="form-control">
+      <input type="text" formControlName="email" class="form-control" />
     </div>
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input type="text" formControlName="phone" class="form-control">
+      <input type="text" formControlName="phone" class="form-control" />
     </div>
     <div class="form-group">
       <label for="website">Website</label>
-      <input type="text" formControlName="website" class="form-control">
+      <input type="text" formControlName="website" class="form-control" />
     </div>
 
     <fieldset formGroupName="address">
       <legend>Address</legend>
       <div class="form-group">
         <label for="street">Street</label>
-        <input type="text" formControlName="street" class="form-control">
+        <input type="text" formControlName="street" class="form-control" />
       </div>
       <div class="form-group">
         <label for="suite">Suite</label>
-        <input type="text" formControlName="suite" class="form-control">
+        <input type="text" formControlName="suite" class="form-control" />
       </div>
       <div class="form-group">
         <label for="city">City</label>
-        <input type="text" formControlName="city" class="form-control">
+        <input type="text" formControlName="city" class="form-control" />
       </div>
       <div class="form-group">
         <label for="zipcode">Zipcode</label>
-        <input type="text" formControlName="zipcode" class="form-control">
+        <input type="text" formControlName="zipcode" class="form-control" />
       </div>
 
       <fieldset formGroupName="geo">
         <legend>Geo</legend>
         <div class="form-group">
           <label for="lat">Lat</label>
-          <input type="text" formControlName="lat" class="form-control">
+          <input type="text" formControlName="lat" class="form-control" />
         </div>
         <div class="form-group">
           <label for="lng">Lng</label>
-          <input type="text" formControlName="lng" class="form-control">
+          <input type="text" formControlName="lng" class="form-control" />
         </div>
       </fieldset>
-
     </fieldset>
 
     <fieldset formGroupName="company">
       <legend>Company</legend>
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" formControlName="name" class="form-control">
+        <input type="text" formControlName="name" class="form-control" />
       </div>
       <div class="form-group">
         <label for="catchPhase">Catch Phase</label>
-        <input type="text" formControlName="catchPhase" class="form-control">
+        <input type="text" formControlName="catchPhase" class="form-control" />
       </div>
       <div class="form-group">
         <label for="bs">BS</label>
-        <input type="text" formControlName="bs" class="form-control">
+        <input type="text" formControlName="bs" class="form-control" />
       </div>
-
     </fieldset>
 
     <!-- <fieldset>
@@ -111,15 +116,30 @@
     </fieldset> -->
 
     <fieldset>
-      <legend>Hobbies | <span class="glyphicon glyphicon-plus" (click)="addhobby()">+</span> </legend>
-      <div class="input-group" *ngFor="let hobbyControl of userForm.get('hobbies'); let i = index">
-        <input type="text" class="form-control" [formControlName]="i" placeholder="Hobby">
-        <span class="ipnut-group-addon glyphicon glyphicon-trash" (click)="deletHobby(i)"></span>
+      <legend>
+        Hobbies |
+        <span class="glyphicon glyphicon-plus" (click)="addhobby()">+</span>
+      </legend>
+      <div
+        class="input-group"
+        *ngFor="let hobbyControl of userForm.get('hobbies'); let i = index"
+      >
+        <input
+          type="text"
+          class="form-control"
+          [formControlName]="i"
+          placeholder="Hobby"
+        />
+        <span
+          class="ipnut-group-addon glyphicon glyphicon-trash"
+          (click)="deletHobby(i)"
+        ></span>
       </div>
     </fieldset>
 
     <button class="btn btn-prmary" type="submit">Submit</button>
-    <button class="btn btn-warning" type="button" (click)="resetForm()"> Reset</button>
-
+    <button class="btn btn-warning" type="button" (click)="resetForm()">
+      Reset
+    </button>
   </form>
 </div>
